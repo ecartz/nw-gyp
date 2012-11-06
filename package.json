@@ -18,15 +18,6 @@
     "type": "git",
     "url": "https://github.com/rogerwang/nw-gyp.git"
   },
-  "keywords": [
-    "native",
-    "addon",
-    "module",
-    "c",
-    "c++",
-    "bindings",
-    "gyp"
-  ],
   "preferGlobal": true,
   "bin": "./bin/nw-gyp.js",
   "main": "./lib/nw-gyp.js",
