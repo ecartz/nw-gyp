@@ -4,8 +4,8 @@
 trying to provide a smooth way for developers rather than specifying a lot of
 command line arguments.
 
-It supports node-webkit starts from v0.3.2 and users need to manually specify the
-version of node-webkit currently.
+It supports node-webkit starts from v0.3.2 and **users need to manually specify the
+version of node-webkit currently**.
 
 ## Features
 
@@ -102,13 +102,13 @@ different build configurations from the official Node.js distribution, you
 should use `--dist-url` or `--nodedir` flags to specify the headers of the
 runtime to build for.
 
-Also when `--dist-url` or `--nodedir` flags are passed, node-gyp will use the
+Also when `--dist-url` or `--nodedir` flags are passed, nw-gyp will use the
 `config.gypi` shipped in the headers distribution to generate build
 configurations, which is different from the default mode that would use the
 `process.config` object of the running Node.js instance.
 
 Some old versions of Electron shipped malformed `config.gypi` in their headers
-distributions, and you might need to pass `--force-process-config` to node-gyp
+distributions, and you might need to pass `--force-process-config` to nw-gyp
 to work around configuration errors.
 
 ## How to Use
@@ -123,7 +123,7 @@ The next step is to generate the appropriate project build files for the current
 platform. Use `configure` for that:
 
 ``` bash
-nw-gyp configure
+nw-gyp configure --target=<0.3.2 or other nw version>
 ```
 
 Auto-detection fails for Visual C++ Build Tools 2015, so `--msvs_version=2015`
@@ -170,7 +170,7 @@ A barebones `gyp` file appropriate for building a Node.js addon could look like:
 
 ## Further reading
 
-The **[docs](./docs/)** directory contains additional documentation on specific node-gyp topics that may be useful if you are experiencing problems installing or building addons using node-gyp.
+The **[docs](./docs/)** directory contains additional documentation on specific nw-gyp topics that may be useful if you are experiencing problems installing or building addons using nw-gyp.
 
 Some additional resources for Node.js native addons and writing `gyp` configuration files:
 
@@ -182,7 +182,7 @@ Some additional resources for Node.js native addons and writing `gyp` configurat
 
 ## Commands
 
-`node-gyp` responds to the following commands:
+`nw-gyp` responds to the following commands:
 
 | **Command**   | **Description**
 |:--------------|:---------------------------------------------------------------
