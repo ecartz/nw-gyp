@@ -2,7 +2,7 @@
 
 'use strict'
 
-process.title = 'node-gyp'
+process.title = 'nw-gyp'
 
 const envPaths = require('env-paths')
 const gyp = require('../')
@@ -22,12 +22,12 @@ const homeDir = os.homedir()
 if (prog.devDir) {
   prog.devDir = prog.devDir.replace(/^~/, homeDir)
 } else if (homeDir) {
-  prog.devDir = envPaths('node-gyp', { suffix: '' }).cache
+  prog.devDir = envPaths('nw-gyp', { suffix: '' }).cache
 } else {
   throw new Error(
-    "node-gyp requires that the user's home directory is specified " +
+    "nw-gyp requires that the user's home directory is specified " +
     'in either of the environmental variables HOME or USERPROFILE. ' +
-    'Overide with: --devdir /path/to/.node-gyp')
+    'Overide with: --devdir /path/to/.nw-gyp')
 }
 
 if (prog.todo.length === 0) {
@@ -41,7 +41,7 @@ if (prog.todo.length === 0) {
 
 log.info('it worked if it ends with', 'ok')
 log.verbose('cli', process.argv)
-log.info('using', 'node-gyp@%s', prog.version)
+log.info('using', 'nw-gyp@%s', prog.version)
 log.info('using', 'node@%s | %s | %s', process.versions.node, process.platform, process.arch)
 
 /**
@@ -84,7 +84,7 @@ async function run () {
       if (args.length) {
         args.forEach((version) => log.stdout(version))
       } else {
-        log.stdout('No node development files installed. Use `node-gyp install` to install a version.')
+        console.log('No node development files installed. Use `nw-gyp install` to install a version.')
       }
     } else if (args.length >= 1) {
       log.stdout(...args.slice(1))
@@ -124,14 +124,15 @@ function errorMessage () {
     .map(JSON.stringify).join(' '))
   log.error('cwd', process.cwd())
   log.error('node -v', process.version)
-  log.error('node-gyp -v', 'v' + prog.package.version)
+  log.error('nw-gyp -v', 'v' + prog.package.version)
 }
 
 function issueMessage () {
   errorMessage()
-  log.error('', ['Node-gyp failed to build your package.',
-    'Try to update npm and/or node-gyp and if it does not help file an issue with the package author.'
-  ].join('\n'))
+  log.error('', [ 'This is a bug in `nw-gyp`.'
+                , 'Please file an Issue:'
+                , '    <https://github.com/rogerwang/nw-gyp/issues>'
+                ].join('\n'))
 }
 
 // start running the given commands!

@@ -1,6 +1,6 @@
 {
-  "name": "node-gyp",
-  "description": "Node.js native addon build tool",
+  "name": "nw-gyp",
+  "description": "node-webkit native addon build tool",
   "license": "MIT",
   "keywords": [
     "native",
@@ -13,14 +13,23 @@
   ],
   "version": "11.2.0",
   "installVersion": 11,
-  "author": "Nathan Rajlich <nathan@tootallnate.net> (http://tootallnate.net)",
+  "author": "Roger Wang <wenrui@gmail.com> (based on node-gyp)",
   "repository": {
     "type": "git",
-    "url": "git://github.com/nodejs/node-gyp.git"
+    "url": "https://github.com/rogerwang/nw-gyp.git"
   },
+  "keywords": [
+    "native",
+    "addon",
+    "module",
+    "c",
+    "c++",
+    "bindings",
+    "gyp"
+  ],
   "preferGlobal": true,
-  "bin": "./bin/node-gyp.js",
-  "main": "./lib/node-gyp.js",
+  "bin": "./bin/nw-gyp.js",
+  "main": "./lib/nw-gyp.js",
   "dependencies": {
     "env-paths": "^2.2.0",
     "exponential-backoff": "^3.1.1",

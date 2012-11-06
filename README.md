@@ -1,18 +1,11 @@
-# `node-gyp` - Node.js native addon build tool
+# `nw-gyp` - NW.js native addon build tool
 
-[![Build Status](https://github.com/nodejs/node-gyp/workflows/Tests/badge.svg?branch=main)](https://github.com/nodejs/node-gyp/actions?query=workflow%3ATests+branch%3Amain)
-![npm](https://img.shields.io/npm/dm/node-gyp)
+`nw-gyp` is a hack on `node-gyp` to build native modules for node-webkit. We are
+trying to provide a smooth way for developers rather than specifying a lot of
+command line arguments.
 
-`node-gyp` is a cross-platform command-line tool written in Node.js for
-compiling native addon modules for Node.js. It contains a vendored copy of the
-[gyp-next](https://github.com/nodejs/gyp-next) project that was previously used
-by the Chromium team and extended to support the development of Node.js native
-addons.
-
-Note that `node-gyp` is _not_ used to build Node.js itself.
-
-All current and LTS target versions of Node.js are supported. Depending on what version of Node.js is actually installed on your system
-`node-gyp` downloads the necessary development files or headers for the target version. List of stable Node.js versions can be found on [Node.js website](https://nodejs.org/en/about/previous-releases).
+It supports node-webkit starts from v0.3.2 and users need to manually specify the
+version of node-webkit currently.
 
 ## Features
 
@@ -22,12 +15,12 @@ All current and LTS target versions of Node.js are supported. Depending on what 
 ## Installation
 
 > [!Important]
-> Python >= v3.12 requires `node-gyp` >= v10
+> Python >= v3.12 requires `nw-gyp` >= v10
 
-You can install `node-gyp` using `npm`:
+You can install `nw-gyp` using `npm`:
 
 ``` bash
-npm install -g node-gyp
+npm install -g nw-gyp
 ```
 
 Depending on your operating system, you will need to install:
@@ -71,17 +64,17 @@ This will make Visual Studio detection logic to use more flexible and accessible
 
 ### Configuring Python Dependency
 
-`node-gyp` requires that you have installed a [supported version of Python](https://devguide.python.org/versions/).
+`nw-gyp` requires that you have installed a [supported version of Python](https://devguide.python.org/versions/).
 If you have multiple versions of Python installed, you can identify which version
-`node-gyp` should use in one of the following ways:
+`nw-gyp` should use in one of the following ways:
 
 1. by setting the `--python` command-line option, e.g.:
 
 ``` bash
-node-gyp <command> --python /path/to/executable/python
+nw-gyp <command> --python /path/to/executable/python
 ```
 
-2. If `node-gyp` is called by way of `npm`, *and* you have multiple versions of
+2. If `nw-gyp` is called by way of `npm`, *and* you have multiple versions of
 Python installed, then you can set the `npm_config_python` environment variable
 to the appropriate path:
 ``` bash
@@ -130,13 +123,13 @@ The next step is to generate the appropriate project build files for the current
 platform. Use `configure` for that:
 
 ``` bash
-node-gyp configure
+nw-gyp configure
 ```
 
 Auto-detection fails for Visual C++ Build Tools 2015, so `--msvs_version=2015`
 needs to be added (not needed when run by npm as configured above):
 ``` bash
-node-gyp configure --msvs_version=2015
+nw-gyp configure --msvs_version=2015
 ```
 
 __Note__: The `configure` step looks for a `binding.gyp` file in the current
@@ -146,7 +139,7 @@ Now you will have either a `Makefile` (on Unix platforms) or a `vcxproj` file
 (on Windows) in the `build/` directory. Next, invoke the `build` command:
 
 ``` bash
-node-gyp build
+nw-gyp build
 ```
 
 Now you have your compiled `.node` bindings file! The compiled bindings end up
@@ -205,7 +198,7 @@ Some additional resources for Node.js native addons and writing `gyp` configurat
 
 ## Command Options
 
-`node-gyp` accepts the following command options:
+`nw-gyp` accepts the following command options:
 
 | **Command**                       | **Description**
 |:----------------------------------|:------------------------------------------
@@ -264,10 +257,10 @@ For example, to set `devdir` equal to `/tmp/.gyp`, you would run:
 npm config set [--global] devdir /tmp/.gyp
 ```
 
-**Note:** Configuration set via `npm` will only be used when `node-gyp`
-is run via `npm`, not when `node-gyp` is run directly.
+**Note:** Configuration set via `npm` will only be used when `nw-gyp`
+is run via `npm`, not when `nw-gyp` is run directly.
 
 ## License
 
-`node-gyp` is available under the MIT license. See the [LICENSE
+`nw-gyp` is available under the MIT license. See the [LICENSE
 file](LICENSE) for details.
