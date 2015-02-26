@@ -149,6 +149,8 @@ you can require the `.node` file with Node.js and run your tests!
 __Note:__ To create a _Debug_ build of the bindings file, pass the `--debug` (or
 `-d`) switch when running either the `configure`, `build` or `rebuild` commands.
 
+__Note:__ nw.js is packed with Node.js version 0.11.13 and a different version of V8 (3.28.71.2) than the one Node.js 0.11.13 has (3.24.35.22), it might lead to some inconsistent behaviour when building your native modules (see [rvagg/nan#285](https://github.com/rvagg/nan/pull/285)).
+
 ## The `binding.gyp` file
 
 A `binding.gyp` file describes the configuration to build your module, in a
