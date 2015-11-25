@@ -11,8 +11,8 @@
     "bindings",
     "gyp"
   ],
-  "version": "11.2.0",
-  "installVersion": 11,
+  "version": "0.13.0",
+  "installVersion": 9,
   "author": "Roger Wang <wenrui@gmail.com> (based on node-gyp)",
   "repository": {
     "type": "git",
