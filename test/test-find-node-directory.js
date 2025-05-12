@@ -16,7 +16,7 @@ describe('find-node-directory', function () {
     for (let next = 0; next < platforms.length; next++) {
       const processObj = { execPath: '/x/y/bin/node', platform: platforms[next] }
       assert.strictEqual(
-        findNodeDirectory('/x/deps/npm/node_modules/node-gyp/lib', processObj),
+        findNodeDirectory('/x/deps/npm/node_modules/nw-gyp/lib', processObj),
         path.join('/x'))
     }
   })
@@ -31,11 +31,11 @@ describe('find-node-directory', function () {
       const processObj = { execPath: '/x/y/bin/node', platform: platforms[next] }
       if (platforms[next] === 'win32') {
         assert.strictEqual(
-          findNodeDirectory('/y/node_modules/npm/node_modules/node-gyp/lib',
+          findNodeDirectory('/y/node_modules/npm/node_modules/nw-gyp/lib',
             processObj), path.join('/y'))
       } else {
         assert.strictEqual(
-          findNodeDirectory('/y/lib/node_modules/npm/node_modules/node-gyp/lib',
+          findNodeDirectory('/y/lib/node_modules/npm/node_modules/nw-gyp/lib',
             processObj), path.join('/y'))
       }
     }
@@ -47,7 +47,7 @@ describe('find-node-directory', function () {
     for (let next = 0; next < platforms.length; next++) {
       const processObj = { execPath: '/x/y/bin/node', platform: platforms[next] }
       assert.strictEqual(
-        findNodeDirectory('/nothere/npm/node_modules/node-gyp/lib', processObj),
+        findNodeDirectory('/nothere/npm/node_modules/nw-gyp/lib', processObj),
         path.join('/x/y'))
     }
   })
@@ -67,7 +67,7 @@ describe('find-node-directory', function () {
       }
 
       assert.strictEqual(
-        findNodeDirectory('/nothere/npm/node_modules/node-gyp/lib', processObj),
+        findNodeDirectory('/nothere/npm/node_modules/nw-gyp/lib', processObj),
         path.join('/x/y'))
     }
   })
@@ -84,7 +84,7 @@ describe('find-node-directory', function () {
       }
 
       assert.strictEqual(
-        findNodeDirectory('/nothere/npm/node_modules/node-gyp/lib', processObj),
+        findNodeDirectory('/nothere/npm/node_modules/nw-gyp/lib', processObj),
         path.join('/a/b'))
     }
   })
@@ -108,7 +108,7 @@ describe('find-node-directory', function () {
     for (let next = 0; next < platforms.length; next++) {
       const processObj = { execPath: '/x/y/bin/node', platform: platforms[next] }
       assert.strictEqual(
-        findNodeDirectory('/x/y/z/a/b/c/deps/npm/node_modules/node-gyp/lib',
+        findNodeDirectory('/x/y/z/a/b/c/deps/npm/node_modules/nw-gyp/lib',
           processObj), path.join('/x/y/z/a/b/c'))
     }
   })

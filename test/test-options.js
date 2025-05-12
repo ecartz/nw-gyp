@@ -2,7 +2,7 @@
 
 const { describe, it } = require('mocha')
 const assert = require('assert')
-const gyp = require('../lib/node-gyp')
+const gyp = require('../lib/nw-gyp')
 
 describe('options', function () {
   it('options in environment', () => {

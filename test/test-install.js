@@ -9,7 +9,7 @@ const os = require('os')
 const { pipeline: streamPipeline } = require('stream/promises')
 const requireInject = require('require-inject')
 const { FULL_TEST, platformTimeout } = require('./common')
-const gyp = require('../lib/node-gyp')
+const gyp = require('../lib/nw-gyp')
 const install = require('../lib/install')
 const { download } = require('../lib/download')
 
@@ -59,7 +59,7 @@ describe('install', function () {
     beforeEach(async () => {
       prog = gyp()
       prog.parseArgv([])
-      prog.devDir = await mkdtemp(path.join(os.tmpdir(), 'node-gyp-test-'))
+      prog.devDir = await mkdtemp(path.join(os.tmpdir(), 'nw-gyp-test-'))
     })
 
     afterEach(async () => {

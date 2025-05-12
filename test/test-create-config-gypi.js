@@ -3,7 +3,7 @@
 const path = require('path')
 const { describe, it } = require('mocha')
 const assert = require('assert')
-const gyp = require('../lib/node-gyp')
+const gyp = require('../lib/nw-gyp')
 const { parseConfigGypi, getCurrentConfigGypi } = require('../lib/create-config-gypi')
 
 describe('create-config-gypi', function () {

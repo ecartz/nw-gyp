@@ -10,7 +10,7 @@ const util = require('../lib/util')
 const { platformTimeout } = require('./common')
 
 const addonPath = path.resolve(__dirname, 'node_modules', 'hello_world')
-const nodeGyp = path.resolve(__dirname, '..', 'bin', 'node-gyp.js')
+const nodeGyp = path.resolve(__dirname, '..', 'bin', 'nw-gyp.js')
 
 const execFileSync = (...args) => cp.execFileSync(...args).toString().trim()
 

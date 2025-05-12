@@ -1,7 +1,7 @@
 const envPaths = require('env-paths')
 const semver = require('semver')
 
-module.exports.devDir = envPaths('node-gyp', { suffix: '' }).cache
+module.exports.devDir = envPaths('nw-gyp', { suffix: '' }).cache
 
 module.exports.poison = (object, property) => {
   function fail () {

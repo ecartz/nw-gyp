@@ -9,13 +9,13 @@ const https = require('https')
 const install = require('../lib/install')
 const { download, readCAFile } = require('../lib/download')
 const { FULL_TEST, devDir, platformTimeout } = require('./common')
-const gyp = require('../lib/node-gyp')
+const gyp = require('../lib/nw-gyp')
 const certs = require('./fixtures/certs')
 
 describe('download', function () {
   it('download over http', async function () {
     const server = http.createServer((req, res) => {
-      assert.strictEqual(req.headers['user-agent'], `node-gyp v42 (node ${process.version})`)
+      assert.strictEqual(req.headers['user-agent'], `nw-gyp v42 (node ${process.version})`)
       res.end('ok')
     })
 
@@ -45,7 +45,7 @@ describe('download', function () {
 
     const options = { ca, cert, key }
     const server = https.createServer(options, (req, res) => {
-      assert.strictEqual(req.headers['user-agent'], `node-gyp v42 (node ${process.version})`)
+      assert.strictEqual(req.headers['user-agent'], `nw-gyp v42 (node ${process.version})`)
       res.end('ok')
     })
 
@@ -74,7 +74,7 @@ describe('download', function () {
     })
 
     const pserver = http.createServer((req, res) => {
-      assert.strictEqual(req.headers['user-agent'], `node-gyp v42 (node ${process.version})`)
+      assert.strictEqual(req.headers['user-agent'], `nw-gyp v42 (node ${process.version})`)
       res.end('proxy ok')
     })
 
@@ -101,7 +101,7 @@ describe('download', function () {
 
   it('download over http with noproxy', async function () {
     const server = http.createServer((req, res) => {
-      assert.strictEqual(req.headers['user-agent'], `node-gyp v42 (node ${process.version})`)
+      assert.strictEqual(req.headers['user-agent'], `nw-gyp v42 (node ${process.version})`)
       res.end('ok')
     })
 

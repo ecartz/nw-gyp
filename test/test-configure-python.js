@@ -4,7 +4,7 @@ const { describe, it } = require('mocha')
 const assert = require('assert')
 const path = require('path')
 const { devDir } = require('./common')
-const gyp = require('../lib/node-gyp')
+const gyp = require('../lib/nw-gyp')
 const requireInject = require('require-inject')
 
 const configure = requireInject('../lib/configure', {

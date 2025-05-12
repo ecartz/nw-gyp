@@ -4,7 +4,7 @@ const { describe, it } = require('mocha')
 const assert = require('assert')
 const path = require('path')
 const os = require('os')
-const gyp = require('../lib/node-gyp')
+const gyp = require('../lib/nw-gyp')
 const requireInject = require('require-inject')
 const semver = require('semver')
 
@@ -56,7 +56,7 @@ function checkTargetPath (target, value) {
 }
 
 describe('configure-nodedir', function () {
-  it('configure nodedir with node-gyp command line', function (done) {
+  it('configure nodedir with nw-gyp command line', function (done) {
     const prog = gyp()
     prog.parseArgv(['dummy_prog', 'dummy_script', '--nodedir=' + path.sep + 'usr'])
 
